@@ -1,0 +1,60 @@
+
+\section{Process}
+A process is one of the most important abstractions provided by the OS,
+and is generally defined as a running program.
+A program is just a collection of instructions and static data on disk,
+but when the OS loads it into memory and executes it,
+it becomes an active process.
+
+Users want to run multiple applications simultaneously.
+Even though modern systems usually have only a few CPUs,
+the OS uses CPU Virtualization to create the illusion
+that dozens or hundreds of processes can run at the same time.
+By applying time sharing, the OS executes one process briefly, suspends it,
+and switches to another, repeating this cycle to provide the illusion of concurrency.
+
+\subsection{Concept of Process}
+A process is essential to CPU Virtualization.
+It consists of the following elements:
+\begin{itemize}
+    \item \textbf{Memory space:} code, static data, heap, stack
+    \item \textbf{Registers:} PC, stack pointer.
+    \item \textbf{Open file list:} including standard input, output, and error streams
+\end{itemize}
+
+A process can be in one of three states:
+\begin{itemize}
+    \item \textbf{Running:} currently executing on the CPU
+    \item \textbf{Ready:} prepared to run, but waiting for CPU allocation
+    \item \textbf{Blocked:} waiting on an event such as I/O, unable to execute
+\end{itemize}
+
+\subsection{Process Control Block (PCB)}
+The OS tracks each process via a Process Control Block (PCB), which includes:
+\begin{itemize}
+    \item PID and process state (Running/Ready/Blocked)
+    \item Saved register context (for context switching)
+    \item Memory management info (code/data/heap/stack regions)
+    \item Open file descriptors and current working directory
+    \item Parent/child relations and pending signals
+\end{itemize}
+
+\subsection{Process API}
+Modern operating systems provide the following APIs to control processes:
+\begin{itemize}
+    \item \textbf{Create:} create and start a new process
+    \item \textbf{Destroy:} terminate a running process
+    \item \textbf{Wait:} wait until a specific process finishes
+    \item \textbf{Miscellaneous Control:} suspend, resume, or otherwise control processes
+    \item \textbf{Status:} retrieve execution time, state, or other process information
+\end{itemize}
+
+\subsection{Process Creation}
+The transition from program to process consists of several steps:
+\begin{enumerate}
+    \item Load the program code and static data into memory.
+    \item Initialize the runtime stack, including \texttt{argc} and \texttt{argv[]}.
+    \item Create a heap region for dynamic memory allocation.
+    \item Initialize file descriptors for standard input, output, and error.
+    \item Begin execution at the program entry point, \texttt{main()}.
+\end{enumerate}

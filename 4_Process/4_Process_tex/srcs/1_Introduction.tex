@@ -1,0 +1,27 @@
+\section{Introduction}
+The operating system acts as an interface between hardware and the user.
+It manages resources to ensure that programs run efficiently and safely,
+and provides abstractions to simplify complex hardware operations.
+
+\subsection{CPU Virtualization}
+Physically, a CPU can only execute one instruction at a time.
+However, users perceive that multiple programs are running simultaneously.
+This illusion is created because the operating system uses CPU Virtualization,
+dividing CPU time among processes.
+The OS achieves concurrency through time sharing and scheduling.
+
+\subsection{API}
+There are two general ways for a user program to control hardware: directly or indirectly.
+If hardware were controlled directly, the OS could lose control of the system
+whenever a program failed to yield resources.
+Therefore, the indirect method is preferred.
+However, user programs sometimes need direct access to hardware.
+To safely provide this functionality, the OS exposes
+an Application Programming Interface (API) to interact with hardware.
+
+\subsection{System Call}
+User programs can only access resources through system calls provided by the OS.
+System calls are a type of API that provide controlled access to critical functions,
+such as reading/writing files, creating/terminating processes, and memory allocation.
+This mechanism allows the OS to maintain security and stability
+while enabling applications to use hardware functionality.
