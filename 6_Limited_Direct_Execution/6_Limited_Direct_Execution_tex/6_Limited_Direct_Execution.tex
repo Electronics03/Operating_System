@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage[a4paper, margin=15mm]{geometry}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[ruled, linesnumbered]{algorithm2e}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{kotex}
+\usepackage{multirow}
+\usepackage{import}
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{minted}
+
+\linespread{1.3}
+
+\setmainfont{Times New Roman}
+\setmainhangulfont{KoPubWorldBatang}[
+    Path = C:/Users/PSH/AppData/Local/Microsoft/Windows/Fonts/,
+    Extension = .TTF,
+    BoldFont    = *Bold,
+    ItalicFont  = *,
+    BoldItalicFont = *Bold
+]
+\setmonofont{D2Coding}
+\setminted{
+    frame=single,
+    linenos
+}
+
+\begin{document}
+\title{\textbf{Limited Direct Execution}\\
+}
+\author{
+    Sanghyeok Park\\
+    \textit{School of Electrical and Electronics Engineering}\\
+    electronics@cau.ac.kr\\
+    20234690
+}
+\maketitle
+
+\input{srcs/0_Abstract}
+\input{srcs/1_Introduction}
+\input{srcs/2_Process}
+\input{srcs/3_Process_API}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+\end{document}
